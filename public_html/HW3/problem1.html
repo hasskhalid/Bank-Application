@@ -8,18 +8,51 @@
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
             //TODO: add any extra onload processing you may need here
+            var page = document.querySelectorAll("a");
+            for (i = 0; i < page.length; i++){
+                page[i].addEventListener("click", eve => {getCurrentSelection(eve); });
+            }
         });
-        function getCurrentSelection() {
+        function getCurrentSelection(eve) {
             setTimeout(() => {
                 //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
                 //TODO: add code for processing the current selection 
-
+            //make for loop here to determine selection
+            let currentLink = eve.target;
+            updateCurrentPage(currentLink.innerHTML);
                 //Note: likely you'll want to call updateCurrentPage towards the end
             }, 100);
         }
     </script>
     <style>
         /* TODO: make edits here */
+        body{
+            font-family: -apple-system, BlinkMacSystemFont;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        nav ul{
+            list-style-type: none;
+            display: block;
+            background-color: coral;
+        }
+        nav ul li{
+            display: inline;
+        }
+        nav ul li :hover{
+            background-color: red;
+            color: black;
+        }
+        ul li ul{
+            list-style-type: none;
+        }
+        ul li ul li:before{
+            content: '✓';
+        }
+        h1, a{
+            text-transform: capitalize;
+        }
+        
     </style>
     <!-- make the necessary edits above this line -->
 
