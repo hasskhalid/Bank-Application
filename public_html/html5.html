@@ -61,11 +61,11 @@ function isWithin(a, b, c) {
 }
 
 // Return true if two squares a and b are colliding, false otherwise
-function isColliding(a, b) {
+function isColliding(a, b, lives) {
   var result = false;
   if (isWithin(a.x, b.x, b.x + b.l) || isWithin(a.x + a.l, b.x, b.x + b.l)) {
     if (isWithin(a.y, b.y, b.y + b.l) || isWithin(a.y + a.l, b.y, b.y + b.l)) {
-      result = true;
+        result = true;
     }
   }
   return result;
@@ -73,6 +73,10 @@ function isColliding(a, b) {
 
 // Track the user's score
 var score = 0;
+// track the ship's lives
+var lives = 3;
+// timeout variable
+let timer;
 // The delay between enemies (in milliseconds)
 var timeBetweenEnemies = 5 * 1000;
 // ID to track the spawn timeout
@@ -115,6 +119,7 @@ function endGame() {
   context.font = '24px Arial';
   context.textAlign = 'center';
   context.fillText('Game Over. Final Score: ' + score, canvas.width / 2, canvas.height / 2);
+  context.fillText('Lives: ' + lives, canvas.width / 3, canvas.height / 3);
 }
 
 // Listen for keydown events
@@ -164,16 +169,26 @@ function draw() {
   // Move and draw the enemies
   enemies.forEach(function(enemy) {
     enemy.x -= enemy.s;
-    if (enemy.x < 0) {
-      gameOver = true;
-    }
+    
+    // removed so that lives functionality work
+    //if (enemy.x < 0) {
+      //gameOver = true;
+    //}
+
     context.fillStyle = '#00FF00';
     enemy.draw();
   });
   // Collide the ship with enemies
   enemies.forEach(function(enemy, i) {
     if (isColliding(enemy, ship)) {
-      gameOver = true;
+        // if collides, deduct lives and end if lives = 0
+        if(!timer){
+            lives --;
+            timer = setTimeout(() => {timer = null; }, 1000); 
+            if (lives == 0){
+                gameOver = true;
+            }
+        } 
     }
   });
   // Move the ship
@@ -204,12 +219,18 @@ function draw() {
         score++;
         shooting = false;
         // Make the game harder
-        if (score % 10 === 0 && timeBetweenEnemies > 1000) {
+        if (score % 2 === 0 && timeBetweenEnemies > 1000) {
           clearInterval(timeoutId);
           timeBetweenEnemies -= 1000;
+          // spawn more enemies at the same time 
+          if (score % 5 === 0){
+              timeBetweenEnemies = 0;
+          }
           timeoutId = setInterval(makeEnemy, timeBetweenEnemies);
-        } else if (score % 5 === 0) {
-          enemyBaseSpeed += 1;
+        } else if (score % 10 === 0) {
+          enemyBaseSpeed += 2;
+        } else{
+            enemyBaseSpeed += 1;
         }
       }
     });
@@ -226,6 +247,7 @@ function draw() {
   context.font = '24px Arial';
   context.textAlign = 'left';
   context.fillText('Score: ' + score, 1, 25)
+  context.fillText('Lives: ' + lives, 1, 50)
   // End or continue the game
   if (gameOver) {
     endGame();
