@@ -24,95 +24,95 @@
 
 - Milestone 1
 
-    - [ ] \(mm/dd/yyyy of completion) User will be able to register a new account
+    - [x] \(10/11/2021 of completion) User will be able to register a new account
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/register.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link: https://github.com/hasskhalid/IT202-005/pull/8
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1402" alt="Screen Shot 2021-11-08 at 1 50 58 PM" src="https://user-images.githubusercontent.com/54921634/140801080-6f4725fa-f082-406c-8caf-0659fc5d5d68.png">
+        - Screenshot #1 Description: We created the register.php file in which users will be able to register a new account. By doing so, we also have checks to see that the user is inputting valid responses to each of the required inputs. For example, we will check if the email is valid if it has an '@' symbol inside of it, but only one. If there are more than one then the email will be invalid and the user will get a response back saying so. This is to ensure that the user is inputting the correct information needed to register their account.
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to login to their account (given they enter the correct credentials)
+     - [x] \(10/11/2021 of completion) User will be able to login to their account (given they enter the correct credentials)
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/login.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/8
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="860" alt="image" src="https://user-images.githubusercontent.com/54921634/140803340-7e43f060-fb79-41a5-b2ba-470a5f2bbf5a.png">
+        - Screenshot #1 Description: Here, we are making a login.php file in which it will validate the information that the user had for their profile. This will ask for an email and password then it will check the database to see if it matches the necessary information. If something is wrong or invalid, the user will get an alert, letting them know that their credentials inputted was incorrect.
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to logout
+     - [x] \(10/11/2021 of completion) User will be able to logout
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/logout.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/8
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1108" alt="image" src="https://user-images.githubusercontent.com/54921634/140815475-584cbc7a-0ac1-4d7c-a036-13d8c588219e.png">
+        - Screenshot #1 Description: By creating the logout.php file, we can log out a user from their current visit by resetting the session. Once the session is reset, the user will get a flash message confirming that they indeed logged out successfully.
 
-     - [ ] \(mm/dd/yyyy of completion) Basic security rules implemented
+     - [x] \(10/27/2021 of completion) Basic security rules implemented
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/login.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/21
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="848" alt="image" src="https://user-images.githubusercontent.com/54921634/141032874-0d94ef25-8304-433d-b467-acfce7ab7bbb.png">
+        - Screenshot #1 Description: For this feature, we made roles in which the user must be registered in order to view the Home page. If the user is not registered or logged in then they will receive a message saying they must be logged in to see the page. 
 
-     - [ ] \(mm/dd/yyyy of completion) Basic Roles implemented
+     - [x] \(10/27/2021 of completion) Basic Roles implemented
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/assign_roles.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/21
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1069" alt="image" src="https://user-images.githubusercontent.com/54921634/140833485-6547f2ea-017c-4c56-bebc-a8d611242532.png">
+        - Screenshot #1 Description: In order to create roles, we also had to create the admin role which can assign roles for any users that may register on the site. To do this, I manually assigned myself as the admin by inserting a new row in the Roles database. We also created an admin folder that contains the following 3 files: assign_roles.php, create_roles.php, and list_roles.php. 
 
-    - [ ] \(mm/dd/yyyy of completion) Site should have basic styles/theme applied; everything should be styled
+    - [x] \(11/03/2021 of completion) Site should have basic styles/theme applied; everything should be styled
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/styles.css
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/20
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1029" alt="image" src="https://user-images.githubusercontent.com/54921634/140835164-060eab80-5fc3-42bf-9101-a20ca9ef17ee.png">
+        - Screenshot #1 Description: I created a style.css file under the Project folder in which I wrote some basic styling commands. I changed the background and font color of the body.
   
-    - [ ] \(mm/dd/yyyy of completion) Any output messages/errors should be “user friendly”
+    - [x] \(10/11/2021 of completion) Any output messages/errors should be “user friendly”
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/login.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/9
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="835" alt="image" src="https://user-images.githubusercontent.com/54921634/140836904-60f9bd34-6ba7-4dad-b5ab-1934dc80ca3e.png">
+        - Screenshot #1 Description: To add flash messages, we created flash.php which will enable the flash messages if the user incorrectly enters their credentials or if a new user is trying to register, but they inserted it in the wrong format. This will output friendly messages pertaining to what the error may be.
 
-    - [ ] \(mm/dd/yyyy of completion) User will be able to see their profile
+    - [x] \(10/11/2021 of completion) User will be able to see their profile
   -  List of Evidence of Feature Completion
     - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/profile.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/8
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1315" alt="image" src="https://user-images.githubusercontent.com/54921634/141033810-4318640d-89d3-42e5-a7e7-8f44ebd9dbd7.png">
+        - Screenshot #1 Description: In this feature, we created profile.php in which the user would be able to see their profile and credentials which includes username/email and the password. This page, as you can see is its own dedicated page to display the user's profile. It can only be accessed if the user is signed in.
 
-    - [ ] \(mm/dd/yyyy of completion) User will be able to edit their profile
+    - [x] \(10/11/2021 of completion) User will be able to edit their profile
   -  List of Evidence of Feature Completion
     - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Direct Link: https://hk362-prod.herokuapp.com/Project/profile.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1: https://github.com/hasskhalid/IT202-005/pull/8
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1: <img width="1315" alt="image" src="https://user-images.githubusercontent.com/54921634/141033810-4318640d-89d3-42e5-a7e7-8f44ebd9dbd7.png">
+        - Screenshot #1 Description: Following the creation of the profile.php file which displays the user's profile. This page will also allow the user to edit their profile. For now, they can change the username or password and it will change it for them in the database. 
 - Milestone 2
 - Milestone 3
 - Milestone 4
