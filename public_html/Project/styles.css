@@ -1,0 +1,23 @@
+.alert-success {
+    background-color: green
+}
+
+.alert-warning {
+    background-color: blue;
+}
+
+.alert-danger {
+    background-color: red;
+}
+
+.alert-info {
+    background-color: teal;
+}
+nav li{display: inline; background-color: lightskyblue; color: black;}
+nav li a{color: black}
+input{border-radius: 50%;}
+body{
+    background-color: lightskyblue;
+    color: purple;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
