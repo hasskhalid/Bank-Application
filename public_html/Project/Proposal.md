@@ -198,6 +198,47 @@
         - Screenshot #1 description explaining what you're trying to show
 
 - Milestone 3
+
+    - [ ] \(mm/dd/yyyy of completion) User will be able to transfer between their accounts
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+     - [ ] \(mm/dd/yyyy of completion) Transaction History page
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User’s profile page should record/show First and Last name
+  -  List of Evidence of Feature Completion
+    - Status:
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able to transfer funds to another user’s account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1: 
+    - Screenshots
+      - Screenshot #1: 
+        - Screenshot #1 Description: 
+
 - Milestone 4
 ### Intructions
 #### Don't delete this
