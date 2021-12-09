@@ -196,6 +196,68 @@
         - Screenshot #1 Description: 
 
 - Milestone 4
+
+    - [ ] \(mm/dd/yyyy of completion) User can set their profile to be public or private (will need another column in Users table)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able open a savings account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able to take out a loan
+  -  List of Evidence of Feature Completion
+    - Status:
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) Listing accounts and/or viewing Account Details should show any applicable APY or “-” if none is set for the particular account (may alternatively just hide the display for these types)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1: 
+    - Screenshots
+      - Screenshot #1: 
+        - Screenshot #1 Description: 
+
+    - [ ] \(mm/dd/yyyy of completion) User will be able to close an account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+    - [ ] \(mm/dd/yyyy of completion) Admin role (leave this section for last)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+
 ### Intructions
 #### Don't delete this
 1. Pick one project type
