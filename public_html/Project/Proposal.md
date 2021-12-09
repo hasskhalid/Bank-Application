@@ -117,85 +117,41 @@
 
 - Milestone 2
 
-    - [ ] \(mm/dd/yyyy of completion) Create the Accounts table
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - Create the Accounts table (2021-11-22)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
 
-     - [ ] \(mm/dd/yyyy of completion) Project setup steps
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    [https://hk362-prod.herokuapp.com/Project/sql/006_create_accounts.sql](https://hk362-prod.herokuapp.com/Project/sql/006_create_accounts.sql)</p></td></tr><tr><td>PRs:<p>
 
-     - [ ] \(mm/dd/yyyy of completion) Create the Transactions table
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    [https://github.com/hasskhalid/IT202-005/pull/43](https://github.com/hasskhalid/IT202-005/pull/43)</p></td></tr><tr><td><table><tr><td>F1 - (id, account_number [unique, always 12 characters], user_id, balance (default 0), account_type, created, modified)<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/54921634/144697422-9264a54f-8554-4eaf-94df-a647d7288c47.png"><p>Here is the table that was generated via the sql file for creating the accounts table.</td></tr></td></tr></table></td></tr></td></tr></table>
 
-     - [ ] \(mm/dd/yyyy of completion) Dashboard page
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - Project setup steps (2021-11-22)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to create a checking account
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    [https://hk362-prod.herokuapp.com/Project/sql/007_insert_sys_account.sql](https://hk362-prod.herokuapp.com/Project/sql/007_insert_sys_account.sql)</p></td></tr><tr><td>PRs:<p>
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to list their accounts
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    [https://github.com/hasskhalid/IT202-005/pull/43](https://github.com/hasskhalid/IT202-005/pull/43)</p></td></tr><tr><td><table><tr><td>F1 - Create these as initial setup scripts in the sql folder<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/54921634/144697540-b42e266b-5ef7-4b43-ae95-2ec226ead48b.png"><p>Here are the sql commands in which the Global account is created.</td></tr></td></tr></table></td></tr></td></tr></table>
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to click an account for more information (a.ka. Transaction History page)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - Create the Transactions table (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
 
-     - [ ] \(mm/dd/yyyy of completion) User will be able to deposit/withdraw from their account(s)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+    [https://hk362-prod.herokuapp.com/Project/sql/008_create_transactions_table.sql](https://hk362-prod.herokuapp.com/Project/sql/008_create_transactions_table.sql)</p></td></tr><tr><td>PRs:<p>
+
+    [https://github.com/hasskhalid/IT202-005/pull/44](https://github.com/hasskhalid/IT202-005/pull/44)</p></td></tr><tr><td><table><tr><td>F1 - Create the Transactions table<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/54921634/144697656-21d6786d-362a-4c4d-bfa4-3631ef3864e5.png"><p>This is the table that was created to record transactions that will be made.</td></tr></td></tr></table></td></tr></td></tr></table>
+
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - Dashboard page (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+    [https://hk362-prod.herokuapp.com/Project/dashboard.php](https://hk362-prod.herokuapp.com/Project/dashboard.php)</p></td></tr><tr><td>PRs:<p>
+
+    [https://github.com/hasskhalid/IT202-005/pull/45](https://github.com/hasskhalid/IT202-005/pull/45)</p></td></tr><tr><td><table><tr><td>F1 - Will have links for Create Account, My Accounts, Deposit, Withdraw Transfer, Profile<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/54921634/144697747-c69e99fd-8926-4f21-b8bb-7fcf6be5b026.png"><p>This page includes link for all the other bank features and will be the main screen for the bank.</td></tr></td></tr></table></td></tr></td></tr></table>
+
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - User will be able to create a checking account ()</td></tr><tr><td>Status: incomplete</td></tr><tr><td>Links:<p>
+
+    [https://hk362-prod.herokuapp.com/Project/create_account.php](https://hk362-prod.herokuapp.com/Project/create_account.php)</p></td></tr><tr><td>PRs:<p>
+
+    [https://github.com/hasskhalid/IT202-005/pull/46](https://github.com/hasskhalid/IT202-005/pull/46)</p></td></tr><tr><td><table><tr><td>F1 - System will generate a unique 12 digit account number<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - System will associate the account to the user<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Account type will be set as checking<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Will require a minimum deposit of $5 (from the world account)<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - User will see user-friendly error messages when appropriate<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - User will see user-friendly success message when account is created successfully<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
+
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - User will be able to list their accounts (2021-12-03)</td></tr><tr><td>Status: incomplete</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - Show account number, account type and balance<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
+
+    <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - User will be able to click an account for more information (a.ka. Transaction History page) (2021-12-03)</td></tr><tr><td>Status: incomplete</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - Show account number, account type, balance, opened/created date<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Show transaction history (from Transactions table)<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
+
+<table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - User will be able to deposit/withdraw from their account(s) (2021-12-03)</td></tr><tr><td>Status: incomplete</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - Form should have a dropdown of their accounts to pick from<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Form should have a field to enter a positive numeric value<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - For withdraw, add a check to make sure they can’t withdraw more money than the account has<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Form should allow the user to record a memo for the transaction<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Each transaction is recorded as a transaction pair in the Transaction table per the details below<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Show appropriate user-friendly error messages<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Show user-friendly success messages<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
 
 - Milestone 3
 

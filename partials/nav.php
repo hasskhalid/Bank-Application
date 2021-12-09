@@ -4,7 +4,7 @@ $domain = $_SERVER["HTTP_HOST"];
 if (strpos($domain, ":")) {
     $domain = explode(":", $domain)[0];
 }
-$localWorks = true; //some people have issues with localhost for the cookie params
+$localWorks = false; //some people have issues with localhost for the cookie params
 //if you're one of those people make this false
 
 //this is an extra condition added to "resolve" the localhost issue for the session cookie
@@ -37,7 +37,7 @@ require_once(__DIR__ . "/../lib/functions.php");
         <div class="collapse navbar-collapse" id="navContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php if (is_logged_in()) : ?>
-
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('dashboard.php'); ?>">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
                 <?php endif; ?>
                 <?php if (!is_logged_in()) : ?>
