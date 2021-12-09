@@ -1,70 +1,52 @@
 <?php
-//snippet from my functions.php
-/**
- * Will fetch the account of the logged in user, or create a new one if it doesn't exist yet.
- * Exists here so it may be called on any desired page and not just login
- * Will populate/refresh $_SESSION["user"]["account"] regardless.
- * Make sure this is called after the session has been set
- */
-function get_or_create_account()
-{
-    if (is_logged_in()) {
-        //let's define our data structure first
-        //id is for internal references, account_number is user facing info, and balance will be a cached value of activity
-        $account = ["id" => -1, "account" => false, "balance" => 0];
-        //this should always be 0 or 1, but being safe
-        $query = "SELECT id, account, balance from Accounts where user_id = :uid LIMIT 1";
+require(__DIR__ . "/../../partials/nav.php");
+
+if (is_logged_in(true)) {
+}
+?>
+
+<link rel="stylesheet" href="styles.css">
+<h1>Create a Checking Account</h1>
+
+<div class ="container-fluid">
+    <form onsubmit="return validcate(this)" method="POST">
+        <div class="mb-3">
+            <label class="form-label" for="account type">Account Type</label>
+            <select id="account_type" name="account_type">
+                <option value="checking">Checking</option>
+                <option value="saving">Saving</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="deposit">Deposit (min $5 required)</label>
+            <input class="form-control" type="text" name="depost"/>
+        </div>
+        <input type="submit" class="mt-3 btn btn-primary" value="Create">
+    </form>
+</div>
+
+<script>
+    function validate(form){
+        return true;
+    }
+</script>
+
+<?php
+   if(isset($_POST["account_type"]) && isset($_POST["deposit"])){
+    $type = se($_POST, "account_type", "", false);
+    $deposit = se($_POST, "deposit", 0, false);
+    if(!empty($type) && $deposit >= 5){
+        $query = "INSERT INTO Accounts(account_number, account_type, user_id) VALUES (null, :at, :uid)";
         $db = getDB();
         $stmt = $db->prepare($query);
-        try {
-            $stmt->execute([":uid" => get_user_id()]);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (!$result) {
-                //account doesn't exist, create it
-                $created = false;
-                //we're going to loop here in the off chance that there's a duplicate
-                //it shouldn't be too likely to occur with a length of 12, but it's still worth handling such a scenario
-
-                //you only need to prepare once
-                $query = "INSERT INTO Account (account, user_id) VALUES (:an, :uid)";
-                $stmt = $db->prepare($query);
-                $user_id = get_user_id(); //caching a reference
-                $account_number = "";
-                while (!$created) {
-                    try {
-                        $account_number = get_random_str(12);
-                        $stmt->execute([":an" => $account_number, ":uid" => $user_id]);
-                        $created = true; //if we got here it was a success, let's exit
-                        flash("Welcome! Your account has been created successfully", "success");
-                    } catch (PDOException $e) {
-                        $code = se($e->errorInfo, 0, "00000", false);
-                        //if it's a duplicate error, just let the loop happen
-                        //otherwise throw the error since it's likely something looping won't resolve
-                        //and we don't want to get stuck here forever
-                        if (
-                            $code !== "23000"
-                        ) {
-                            throw $e;
-                        }
-                    }
-                }
-                //loop exited, let's assign the new values
-                $account["id"] = $db->lastInsertId();
-                $account["account"] = $account_number;
-            } else {
-                //$account = $result; //just copy it over
-                $account["id"] = $result["id"];
-                $account["account_number"] = $result["account"];
-                $account["balance"] = $result["balance"];
-            }
-        } catch (PDOException $e) {
-            flash("Technical error: " . var_export($e->errorInfo, true), "danger");
-        }
-        $_SESSION["user"]["account"] = $account; //storing the account info as a key under the user session
-        //Note: if there's an error it'll initialize to the "empty" definition around line 161
-
-    } else {
-        flash("You're not logged in", "danger");
+        $id = $db->lastInsertId();
+        $account_number = str_pad($id, "0", 12, STR_PAD_LEFT);
+        $query2 = "UPDATE Accounts SET account_number = :an WHERE id = :id";
+        $stmt = $id->prepare($query2);
     }
-}
+}   
+?>
+
+<?php
+require(__DIR__ . "/../../partials/flash.php");
 ?>
