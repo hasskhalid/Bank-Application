@@ -141,3 +141,69 @@ function get_random_str($length)
     //https://stackoverflow.com/a/40974772
     return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 36)), 0, $length);
 }
+
+function account_balance(){
+    if(is_logged_in(true)){
+        $query = "UPDATE Accounts set balance = (SELECT IFNULL(SUM(BalanceChange),0)
+        from Transactions WHERE AccountSrc = :accountsrc) WHERE id = :accountsrc";
+        $db = getDB();
+        $stmt = $db -> prepare($query);
+        try{
+            $stmt->execute([":accountsrc" => get_user_id()]);
+            //create_account();
+        } catch (PDOException $e){
+            flash("Error");
+        }
+    }
+}
+
+function create_account(){
+    if(isset($_POST["account_type"]) && isset($_POST["deposit"])){
+        $type = se($_POST, "account_type", "", false);
+        $deposit = se($_POST, "deposit", 0, false);
+
+        if(!empty($type) && $deposit >= 5){
+            $query = "INSERT INTO Accounts(account, user_id) VALUES (null, :user_id)";
+            $db = getDB();
+            $stmt = $db->prepare($query);
+            $stmt->execute([":user_id" => get_user_id()]);
+
+            $id = $db->lastInsertID();
+            $account_number = str_pad($id, 12, "0", STR_PAD_LEFT);
+            $query2 = "UPDATE Accounts SET account = :account WHERE id = $id";
+            $stmt = $db ->prepare($query2);
+
+            try{
+                $stmt->execute([":execute" => $account_number, ":balance" => $deposit]);
+                flash("Successfully Created!");
+            } catch (Exception $e){
+                flash("Not Created Successfully");
+            }
+        }
+    }
+}
+
+function transaction($account1, $type, $accountsrc = -1, $accountdest = -1, $memo = ""){
+    if($account1 > 0){
+        $query = "INSERT INTO Transactions (AccountSrc, AccountDest, BalanceChange, TransactionType, Memo)
+        VALUES (:acc1, :accd1, :acclchange, :reason, :memo),
+        (:acc2, :accd2, :acc2change, :reason, :memo)";
+        $params [":acc1"] = $accountsrc;
+        $params [":accd1"] = $accountdest;
+        $params[":reason" ] = $type;
+        $params [":memo" ] = $memo;
+        $params [":acc1change"] = ($account1*-1);
+
+        $params[":acc2"] = $accountdest;
+        $params [":accd2" ] = $accountsrc;
+        $params [":acc2change"] = $account1;
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try{
+            $stmt->execute($params);
+            account_balance() ;
+        } catch (PDOException $e){
+            flash("Error!");
+        }
+    }
+}
