@@ -37,7 +37,7 @@ if (is_logged_in(true)) {
     $deposit = se($_POST, "deposit", 0, false);
 
     if(!empty($type) && $deposit >= 5){
-        $query = "INSERT INTO Accounts(account, user_id) VALUES (null, :user_id)";
+        $query = "INSERT INTO Accounts(account, user_id, account_type) VALUES (null, :user_id, '$type')";
         $db = getDB();
         $stmt = $db->prepare($query);
         $stmt->execute([":user_id" => get_user_id()]);
@@ -53,6 +53,24 @@ if (is_logged_in(true)) {
         } catch (Exception $e) {
             flash("Not Created Successfully");
         }
+
+        $query3 = "SELECT balance FROM Accounts WHERE id = -1";
+        $stmt = $db->prepare($query3);
+        $stmt->execute();
+        $balance_variable = $stmt->fetch();
+        $expected_total = $balance_variable['balance'] - $deposit;
+
+        $query4 ="INSERT INTO Transactions(id, AccountSrc, AccountDest, BalanceChange, TransactionType, 
+        Memo, ExpectedTotal) VALUES (null, -1, '$account_number', '-$deposit', 'withdraw', 'funding account',
+        '$expected_total')"; 
+        $stmt = $db->prepare($query4);
+        $stmt->execute();
+
+        $query5 ="INSERT INTO Transactions(id, AccountSrc, AccountDest, BalanceChange, TransactionType, 
+        Memo, ExpectedTotal) VALUES (null, '$account_number', -1, '$deposit', 'deposit', 'funded account',
+        '$deposit')"; 
+        $stmt = $db->prepare($query5);
+        $stmt->execute();
 
         //transaction ledger
 
