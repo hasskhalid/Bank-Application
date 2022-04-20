@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Transactions(
     `id` INT PRIMARY KEY AUTO_INCREMENT,
-    `AccountSrc` VARCHAR(12) NOT NULL,
-    `AccountDest` VARCHAR(12) NOT NULL,
+    `AccountSrc` INT NOT NULL,
+    `AccountDest` INT NOT NULL,
     `BalanceChange` DECIMAL(12,2) DEFAULT 0,
     `TransactionType` VARCHAR(100) NOT NULL,
     `Memo` VARCHAR(100) NOT NULL,

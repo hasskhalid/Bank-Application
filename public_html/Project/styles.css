@@ -21,3 +21,17 @@ body{
     color: purple;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
+
+.accounts table, th, td{
+    border: 3px solid black;
+    width: 45%;
+}
+
+.accounts .hed{
+    font-size: 36px;
+}
+
+.accounts th{
+    font-size: 18px;
+    text-align: center;
+}
