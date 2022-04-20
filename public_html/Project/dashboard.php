@@ -13,7 +13,7 @@ if (is_logged_in(true)) {
 <link rel="stylesheet" href="styles.css">
 <ul>
     <li class="dash-link"><a href="create_account.php">Create Account</a></li>
-    <li class="dash-link"><a href="#">My Accounts</a></li>
+    <li class="dash-link"><a href="my_accounts.php">My Accounts</a></li>
     <li class="dash-link"><a href="#">Deposit/Withdraw</a></li>
     <li class="dash-link"><a href="#">Transaction History</a></li>
     <li class="dash-link"><a href="<?php echo get_url('profile.php'); ?>">Profile</a></li>

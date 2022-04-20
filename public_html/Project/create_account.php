@@ -32,65 +32,7 @@ if (is_logged_in(true)) {
 </script>
 
 <?php
-   if(isset($_POST["account_type"]) && isset($_POST["deposit"])){
-    $type = se($_POST, "account_type", "", false);
-    $deposit = se($_POST, "deposit", 0, false);
-
-    if(!empty($type) && $deposit >= 5){
-        $query = "INSERT INTO Accounts(account, user_id, account_type) VALUES (null, :user_id, '$type')";
-        $db = getDB();
-        $stmt = $db->prepare($query);
-        $stmt->execute([":user_id" => get_user_id()]);
-
-        $id = $db->lastInsertId();
-        $account_number = str_pad($id, 12, "0", STR_PAD_LEFT);
-        $query2 = "UPDATE Accounts SET account = :account, balance = :balance WHERE id = $id";
-        $stmt = $db->prepare($query2);
-
-        try {
-            $stmt->execute([":account" => $account_number, ":balance" => $deposit]);
-            flash("Successfully Created!");
-        } catch (Exception $e) {
-            flash("Not Created Successfully");
-        }
-
-        $query3 = "SELECT balance FROM Accounts WHERE id = -1";
-        $stmt = $db->prepare($query3);
-        $stmt->execute();
-        $balance_variable = $stmt->fetch();
-        $expected_total = $balance_variable['balance'] - $deposit;
-
-        $query4 ="INSERT INTO Transactions(id, AccountSrc, AccountDest, BalanceChange, TransactionType, 
-        Memo, ExpectedTotal) VALUES (null, -1, '$account_number', '-$deposit', 'withdraw', 'funding account',
-        '$expected_total')"; 
-        $stmt = $db->prepare($query4);
-        $stmt->execute();
-
-        $query5 ="INSERT INTO Transactions(id, AccountSrc, AccountDest, BalanceChange, TransactionType, 
-        Memo, ExpectedTotal) VALUES (null, '$account_number', -1, '$deposit', 'deposit', 'funded account',
-        '$deposit')"; 
-        $stmt = $db->prepare($query5);
-        $stmt->execute();
-
-        //transaction ledger
-
-        $accountsrc = $account_number;
-        $accountdest = "SELECT account FROM Accounts WHERE id = -1";
-
-        $query = "INSERT INTO Transactions (AccountSrc, AccountDest, BalanceChange, TransactionType, Memo, ExpectedTotal)
-        VALUES (:1account1, :1account2, :1change1, :transactiontype, :memo, :total1), 
-        (:2account2, :2account1, :2change2, :transactiontype, :memo, :total2)";
-
-        $stmt = $db->prepare($query);
-        $params [":1account1"] = $accountsrc;
-        $params [":1account2"] = $accountdest;
-        $params [":1change1"] = $deposit;
-        $params [":transactiontype"] = $type;
-        $params [":memo"] = "initial deposit";
-        $params [":total1"] = $accountdest;
-        
-    }
-}   
+    create_account();
 ?>
 
 <?php
