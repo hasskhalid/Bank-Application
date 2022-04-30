@@ -37,14 +37,21 @@ try{
         <th>Account Type</th>
     </tr>
 
-<?php    
+<?php  
     $accounts = $r;
+    $i = 0;
     foreach($accounts as $row){
+        $acc = $row['account'];
+        $bal = $row['balance'];
+        $created = $row['created'];
+        $acctype = $row['account_type'];
         echo "<tr> \n";
-        echo "<td>" .  print_r($row['account'], true) . "</td>";
+        echo "<td> <a href= 'account_info.php?acc=$acc&bal=$bal&type=$acctype&created=$created'>" . print_r($row['account'], true) . "</a></td>";
         echo "<td>" .  print_r($row['balance'], true) . "</td>";
         echo "<td>" .  print_r($row['account_type'], true) . "</td>";
         echo "</tr>";
+
+        if($i++ > 5) break;
     }
   }
 }
