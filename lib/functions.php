@@ -231,6 +231,7 @@ function transaction($cashflow, $transaction_type, $accountsrc, $accountdest, $m
             $stmt->execute($params);
             account_balance($accountsrc);
             account_balance($accountdest);
+            flash("Transaction Successful!");
 
         } catch (PDOException $e){
             flash("Error!");
