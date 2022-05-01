@@ -141,3 +141,101 @@ function get_random_str($length)
     //https://stackoverflow.com/a/40974772
     return substr(str_shuffle(str_repeat('0123456789abcdefghijklmnopqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', 36)), 0, $length);
 }
+
+function account_balance($account_id){
+    if(is_logged_in(true)){
+        $query = "UPDATE Accounts set balance = (SELECT IFNULL(SUM(BalanceChange),0)
+        from Transactions WHERE AccountSrc = :accountsrc) WHERE id = :accountsrc";
+        $db = getDB();
+        $stmt = $db -> prepare($query);
+        try{
+            $stmt->execute([":accountsrc" => $account_id]);
+        } catch (PDOException $e){
+            flash("Error");
+        }
+    }
+}
+
+function create_account(){
+    if(isset($_POST["account_type"]) && isset($_POST["deposit"])){
+    $type = se($_POST, "account_type", "", false);
+    $deposit = se($_POST, "deposit", 0, false);
+    $transaction_type = "deposit";
+
+        if(!empty($type) && $deposit >= 5){
+            $query = "INSERT INTO Accounts(account, user_id, account_type) VALUES (null, :user_id, '$type')";
+            $db = getDB();
+            $stmt = $db->prepare($query);
+            $stmt->execute([":user_id" => get_user_id()]);
+
+            $id = $db->lastInsertId();
+            $account_number = str_pad($id, 12, "0", STR_PAD_LEFT);
+            //$query2 = "UPDATE Accounts SET account = :account, balance = :balance WHERE id = $id";
+            $query2 = "UPDATE Accounts SET account = :account WHERE id = $id";
+            $stmt = $db->prepare($query2);
+
+            try {
+                //$stmt->execute([":account" => $account_number, ":balance" => $deposit]);
+                $stmt->execute([":account" => $account_number]);
+                transaction($deposit, $transaction_type, -1, $id, "");
+                flash("Successfully Created!");
+                header("Location: my_accounts.php");
+                exit();
+            } 
+            catch (Exception $e) {
+                flash("Not Created Successfully");
+            }
+        }
+    }
+}
+
+function transaction($cashflow, $transaction_type, $accountsrc, $accountdest, $memo = ""){
+    if($cashflow > 0){
+
+        $query1 = "SELECT balance FROM Accounts WHERE id = :accountsrc";
+        $db = getDB();
+        $stmt = $db->prepare($query1);
+        $stmt->execute([":accountsrc" => $accountsrc]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total1 = (int)$result["balance"];
+
+        $acc1change = $cashflow*-1;
+        $expectedtotal1 = $total1 + $acc1change;
+
+        $query2 = "SELECT balance FROM Accounts WHERE id = :accountdest";
+        $db = getDB();
+        $stmt = $db->prepare($query2);
+        $stmt->execute([":accountdest" => $accountdest]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total2 = (int)$result["balance"];
+
+        $acc2change = $cashflow;
+        $expectedtotal2 = $total2 + $acc2change;
+
+        $query = "INSERT INTO Transactions (AccountSrc, AccountDest, BalanceChange, TransactionType, Memo, ExpectedTotal)
+        VALUES (:acc1, :accd1, :acc1change, :reason, :memo, :expectedtotal1),
+        (:acc2, :accd2, :acc2change, :reason, :memo, :expectedtotal2)";
+        $params[":acc1"] = $accountsrc;
+        $params[":accd1"] = $accountdest;
+        $params[":reason" ] = $transaction_type;
+        $params[":memo" ] = $memo;
+        $params[":acc1change"] = $acc1change;
+        $params[":expectedtotal1"] = $expectedtotal1;
+        $params[":acc2"] = $accountdest;
+        $params[":accd2" ] = $accountsrc;
+        $params[":acc2change"] = $acc2change;
+        $params[":expectedtotal2"] = $expectedtotal2;
+        $db = getDB();
+        $stmt = $db->prepare($query);
+        try{
+            $stmt->execute($params);
+            account_balance($accountsrc);
+            account_balance($accountdest);
+            flash("Transaction Successful!");
+
+        } catch (PDOException $e){
+            flash("Error!");
+        }
+    }
+}
+
