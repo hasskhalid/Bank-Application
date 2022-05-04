@@ -14,7 +14,7 @@ if (is_logged_in(true)) {
 <ul>
     <li class="dash-link"><a href="create_account.php">Create Account</a></li>
     <li class="dash-link"><a href="my_accounts.php">My Accounts</a></li>
-    <li class="dash-link"><a href="deposit_withdraw.php">Deposit/Withdraw</a></li>
+    <li class="dash-link"><a href="transactions.php">Start a Transaction</a></li>
     <li class="dash-link"><a href="#">Transaction History</a></li>
     <li class="dash-link"><a href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
 </ul>
