@@ -7,13 +7,6 @@ require(__DIR__ . "/../../partials/nav.php");
 if (is_logged_in(true)) {
 }
 
-// $id = get_user_id();
-// $db = getDB();
-
-// $query = "SELECT * FROM Accounts WHERE user_id = $id";
-// $stmt = $db->prepare($query);
-//$stmt->execute();
-
 $id = get_user_id();
 $db = getDB();
 
