@@ -39,6 +39,7 @@ if(isset($_GET['acc'])){
         <option value="deposit">Deposit😁</option>
         <option value="withdraw">Withdraw🥹</option>
         <option value="transfer">Transfer💸</option>
+        <option value="ext-transfer">Ext-Transfer✉️</option>
       </select>
     </div>
     <div class="col">
