@@ -266,3 +266,19 @@ function paginate($query, $params = [], $per_page = 10){
     $offset = ($page = 1) * $per_page;
 }
 
+function get_fname()
+{
+    if (is_logged_in()) { //we need to check for login first because "user" key may not exist
+        return se($_SESSION["user"], "fname", "", false);
+    }
+    return "";
+}
+
+function get_lname()
+{
+    if (is_logged_in()) { //we need to check for login first because "user" key may not exist
+        return se($_SESSION["user"], "lname", "", false);
+    }
+    return "";
+}
+

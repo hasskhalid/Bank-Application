@@ -3,9 +3,13 @@ require_once(__DIR__ . "/../../partials/nav.php");
 is_logged_in(true);
 ?>
 <?php
+
+
 if (isset($_POST["save"])) {
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
+    $fname = se($_POST, "fname", null, false);
+    $lname = se($_POST, "lname", null, false);
     $hasError = false;
     //sanitize
     $email = sanitize_email($email);
@@ -19,9 +23,9 @@ if (isset($_POST["save"])) {
         $hasError = true;
     }
     if (!$hasError) {
-        $params = [":email" => $email, ":username" => $username, ":id" => get_user_id()];
+        $params = [":email" => $email, ":username" => $username, ":fname" => $fname, ":lname" => $lname, ":id" => get_user_id()];
         $db = getDB();
-        $stmt = $db->prepare("UPDATE Users set email = :email, username = :username where id = :id");
+        $stmt = $db->prepare("UPDATE Users set email = :email, username = :username, fname = :fname, lname = :lname where id = :id");
         try {
             $stmt->execute($params);
         } catch (Exception $e) {
@@ -29,7 +33,7 @@ if (isset($_POST["save"])) {
         }
     }
     //select fresh data from table
-    $stmt = $db->prepare("SELECT id, email, IFNULL(username, email) as `username` from Users where id = :id LIMIT 1");
+    $stmt = $db->prepare("SELECT id, email, fname, lname, IFNULL(username, email) as `username` from Users where id = :id LIMIT 1");
     try {
         $stmt->execute([":id" => get_user_id()]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -37,6 +41,8 @@ if (isset($_POST["save"])) {
             //$_SESSION["user"] = $user;
             $_SESSION["user"]["email"] = $user["email"];
             $_SESSION["user"]["username"] = $user["username"];
+            $_SESSION["user"]["fname"] = $user["fname"];
+            $_SESSION["user"]["lname"] = $user["lname"];
         } else {
             flash("User doesn't exist", "danger");
         }
@@ -84,6 +90,8 @@ if (isset($_POST["save"])) {
 <?php
 $email = get_user_email();
 $username = get_username();
+$fname = get_fname();
+$lname = get_lname();
 ?>
 <div class="container-fluid">
     <h1>Profile</h1>
@@ -110,6 +118,17 @@ $username = get_username();
             <label class="form-label" for="conp">Confirm Password</label>
             <input class="form-control" type="password" name="confirmPassword" id="conp" />
         </div>
+
+        <div class="mb-3">Enter First and Last Name</div>
+        <div class="mb-3">
+            <label class="form-label" for="name">First Name</label>
+            <input class="form-control" type="text" name="fname" id="fname" value="<?php se($fname); ?>" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="name">Last Name</label>
+            <input class="form-control" type="text" name="lname" id="lname" value="<?php se($lname); ?>" />
+        </div>
+
         <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
     </form>
 </div>
