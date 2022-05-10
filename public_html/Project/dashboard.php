@@ -39,6 +39,7 @@ if (is_logged_in(true)) {
     <li class="dash-link"><a href="create_account.php">Create Account</a></li>
     <li class="dash-link"><a href="my_accounts.php">My Accounts</a></li>
     <li class="dash-link"><a href="transactions.php">Start a Transaction</a></li>
+    <li class="dash-link"><a href="ext_transfer.php">External Transfers</a></li>
     <li class="dash-link"><a href= "profile.php">Profile</a></li>
 </ul>
 <?php

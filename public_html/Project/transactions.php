@@ -108,7 +108,8 @@ catch(PDOException){
         var x = document.getElementById("second_account");
         if(document.getElementById("transaction_type").value === 'transfer'){
             x.style.display = "block";
-        }else{
+        }
+        else{
             x.style.display = "none";
         }
     }
