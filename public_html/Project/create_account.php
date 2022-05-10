@@ -10,13 +10,19 @@ if (is_logged_in(true)) {
 
 <div class ="container-fluid">
     <form onsubmit="return validcate(this)" method="POST">
-        <div class="mb-3">
+    <div class="mb-3">
             <label class="form-label" for="account type">Account Type</label>
-            <select id="account_type" name="account_type">
+            <select id="account_type" name="account_type" onchange="hideDiv()">
                 <option value="checking">Checking</option>
-                <option value="saving">Saving</option>
+                <option value="savings">Savings</option>
             </select>
         </div>
+
+        <div class="mb-3" id="apy" style="display: none">
+            <label class="form-label" for="apy">APY:</label>
+            <?php echo"0.06%"; ?>
+        </div>
+
         <div class="mb-3">
             <label class="form-label" for="deposit">Deposit (min $5 required)</label>
             <input class="form-control" type="text" name="deposit"/>
@@ -29,6 +35,16 @@ if (is_logged_in(true)) {
     function validate(form){
         return true;
     }
+    function hideDiv() {
+        var x = document.getElementById("apy");
+        if(document.getElementById("account_type").value === 'savings'){
+            x.style.display = "block";
+        }
+        else{
+            x.style.display = "none";
+        }
+    }
+
 </script>
 
 <?php
