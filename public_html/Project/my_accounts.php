@@ -1,8 +1,5 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
-?>
-<h1>Home</h1>
-<?php
 
 if (is_logged_in(true)) {
 }
@@ -10,7 +7,7 @@ if (is_logged_in(true)) {
 $id = get_user_id();
 $db = getDB();
 
-$stmt = $db->prepare("SELECT * FROM Accounts where user_id = :uid");
+$stmt = $db->prepare("SELECT * FROM Accounts where user_id = :uid AND isActive = 1");
 $accounts = [];
 
 try{
@@ -22,7 +19,7 @@ try{
 
 <table border='4' class='accounts' cellspacing='0'>
     <tr>
-        <td class='hed' colspan='8' align="center">All Accounts</td>
+        <td class='hed' colspan='8' align="center">My Accounts</td>
     </tr>
     <tr>
         <th>Account Number</th>
