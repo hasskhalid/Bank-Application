@@ -21,7 +21,7 @@ try{
         $stmt = $db->prepare("SELECT Accounts.id
                             FROM Users
                             Inner JOIN Accounts ON Users.id = Accounts.user_id
-                            WHERE Users.lname = :user_last AND Accounts.id = :accdest ");
+                            WHERE Users.lname = :user_last AND Accounts.id = :accdest AND isActive = 1 ");
         $stmt->execute([":user_last"=>$user_last, ":accdest"=>$accdest]);
         $re = $stmt->fetch(PDO::FETCH_ASSOC);
         $acc2 = $re['id'];
@@ -37,7 +37,7 @@ try{
             transaction($amount, $type, $accsource, $acc2, $memo);
         }
     }
-    $stmt = $db->prepare("SELECT id, account, balance FROM Accounts WHERE user_id = :uid");
+    $stmt = $db->prepare("SELECT id, account, balance, account_type FROM Accounts WHERE user_id = :uid AND isActive = 1");
     $accounts = [];
     $stmt->execute([":uid"=>$id]);
     $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ catch(PDOException){
             <select id="choose_account" name="choose_account">
                 <?php foreach($accounts as $account): ?>
                 <option value ="<?php se($account['id']) ?>" >
-                <?php se($account['account']); se(" $" . $account['balance']); endforeach; ?>
+                <?php se($account['account']); se(" $" . $account['balance']); se(" - " . $account['account_type']); endforeach; ?>
             </option>
             </select>
         </div>

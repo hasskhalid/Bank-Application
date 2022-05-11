@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS Accounts(
     balance DECIMAL(12,2) DEFAULT 0,
     created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+    isActive BIT,
     FOREIGN KEY (user_id) REFERENCES Users(id),
     check (balance >= 0 AND LENGTH(account) = 12)
 )

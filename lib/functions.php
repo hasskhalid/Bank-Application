@@ -163,7 +163,7 @@ function create_account(){
     $transaction_type = "deposit";
 
         if(!empty($type) && $deposit >= 5){
-            $query = "INSERT INTO Accounts(account, user_id, account_type) VALUES (null, :user_id, '$type')";
+            $query = "INSERT INTO Accounts(account, user_id, account_type, isActive) VALUES (null, :user_id, '$type', 1)";
             $db = getDB();
             $stmt = $db->prepare($query);
             $stmt->execute([":user_id" => get_user_id()]);
@@ -280,5 +280,20 @@ function get_lname()
         return se($_SESSION["user"], "lname", "", false);
     }
     return "";
+}
+
+function close_account($acc){
+    $db = getDB();
+    $query = "UPDATE Accounts SET isActive = 0 WHERE id = :acc";
+    $stmt = $db->prepare($query);
+
+    try{
+        $stmt->execute(["acc"=>$acc]);
+        flash("Account Successfully Closed!");
+        header("Location: my_accounts.php");
+        exit();
+    }catch (Exception $e) {
+        flash("Account Closure Unsuccessfully!");
+    }
 }
 

@@ -28,6 +28,7 @@ if (isset($_POST["save"])) {
         $stmt = $db->prepare("UPDATE Users set email = :email, username = :username, fname = :fname, lname = :lname where id = :id");
         try {
             $stmt->execute($params);
+            flash("Success!");
         } catch (Exception $e) {
             users_check_duplicate($e->errorInfo);
         }

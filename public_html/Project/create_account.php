@@ -6,7 +6,7 @@ if (is_logged_in(true)) {
 ?>
 
 <link rel="stylesheet" href="styles.css">
-<h1>Create a Checking Account</h1>
+<h1>Create an Account</h1>
 
 <div class ="container-fluid">
     <form onsubmit="return validcate(this)" method="POST">

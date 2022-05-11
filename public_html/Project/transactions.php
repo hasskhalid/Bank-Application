@@ -42,7 +42,7 @@ try{
                 }
         }
     }
-    $stmt = $db->prepare("SELECT id, account, balance FROM Accounts WHERE user_id = :uid");
+    $stmt = $db->prepare("SELECT id, account, balance, account_type FROM Accounts WHERE user_id = :uid AND isActive = 1");
     $accounts = [];
     $stmt->execute([":uid"=>$id]);
     $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -54,7 +54,7 @@ catch(PDOException){
 ?>
 
 <link rel="stylesheet" href="styles.css">
-<h1>Start a Transaction!</h1>
+<h1>Make a Transaction!</h1>
 
 <div class ="container-fluid">
     <form onsubmit="return validcate(this)" method="POST">
@@ -73,7 +73,7 @@ catch(PDOException){
             <select id="choose_account" name="choose_account">
                 <?php foreach($accounts as $account): ?>
                 <option value ="<?php se($account['id']) ?>" >
-                <?php se($account['account']); se(" $" . $account['balance']); endforeach; ?>
+                <?php se($account['account']); se(" $" . $account['balance']); se(" - " . $account['account_type']); endforeach; ?>
             </option>
             </select>
         </div>
@@ -83,7 +83,7 @@ catch(PDOException){
             <select id="acc2" name="acc2">
                 <?php foreach($accounts as $account): ?>
                 <option value ="<?php se($account['id']) ?>" >
-                <?php se($account['account']); se(" $" . $account['balance']); endforeach; ?>
+                <?php se($account['account']); se(" $" . $account['balance']); se(" - " . $account['account_type']); endforeach; ?>
             </option>
             </select>
         </div>
