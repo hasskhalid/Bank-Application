@@ -301,7 +301,7 @@ function close_account($acc){
         header("Location: my_accounts.php");
         exit();
     }catch (Exception $e) {
-        flash("Account Closure Unsuccessfull!");
+        flash("Account Closure Unsuccessful!");
     }
 }
 
