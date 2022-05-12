@@ -28,6 +28,14 @@ if(isset($_GET['acc'])){
   <h3>Account Balance: $<?=$_SESSION['bal']?> </h3>
   <h3>Account Type: <?=$_SESSION['type']?> </h3>
   <h3>Account Created: <?=$_SESSION['created']?> </h3>
+  <h3>APY: <?php
+            if($_SESSION['type'] !== 'savings'){
+              echo"-";
+            }else{
+              echo"0.06%";
+            }
+          ?>
+  </h3>
 </div>
 
   <div class="container-fluid">

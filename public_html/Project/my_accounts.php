@@ -25,6 +25,7 @@ try{
         <th>Account Number</th>
         <th>Balance</th>
         <th>Account Type</th>
+        <th>APY</th>
     </tr>
 
 <?php  
@@ -39,6 +40,12 @@ try{
         echo "<td> <a href= 'account_info.php?acc=$acc&bal=$bal&type=$acctype&created=$created'>" . print_r($row['account'], true) . "</a></td>";
         echo "<td>" .  print_r($row['balance'], true) . "</td>";
         echo "<td>" .  print_r($row['account_type'], true) . "</td>";
+        
+        if($acctype !== 'savings'){
+          echo "<td>" . print_r("-", true) . "</td>";
+        }else{
+          echo "<td>" . "0.06%" . "</td>";
+        }
         echo "</tr>";
 
         if($i++ > 5) break;
