@@ -282,6 +282,14 @@ function get_lname()
     return "";
 }
 
+function get_public()
+{
+    if (is_logged_in()) { //we need to check for login first because "user" key may not exist
+        return se($_SESSION["user"], "public", "", false);
+    }
+    return "";
+}
+
 function close_account($acc){
     $db = getDB();
     $query = "UPDATE Accounts SET isActive = 0 WHERE id = :acc";
@@ -293,7 +301,7 @@ function close_account($acc){
         header("Location: my_accounts.php");
         exit();
     }catch (Exception $e) {
-        flash("Account Closure Unsuccessfully!");
+        flash("Account Closure Unsuccessfull!");
     }
 }
 
