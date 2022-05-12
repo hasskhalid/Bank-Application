@@ -167,7 +167,7 @@ if(isset($_GET['acc'])){
     <?php endforeach; ?>
     <?php endif; ?>
   </div>
-
+  <a href= "my_accounts.php" class="sideP"><- Go Back</a>
 <?php
 require(__DIR__ . "/../../partials/flash.php");
 ?>

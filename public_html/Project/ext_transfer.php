@@ -85,6 +85,7 @@ catch(PDOException){
         <input type="submit" class="mt-3 btn btn-primary" value="Submit">
     </form>
 </div>
+<a href= "dashboard.php" class="sideP"><- Go Back</a>
 
 <script>
     function validate(form){

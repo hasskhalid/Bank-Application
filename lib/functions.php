@@ -179,8 +179,6 @@ function create_account(){
                 $stmt->execute([":account" => $account_number]);
                 transaction($deposit, $transaction_type, -1, $id, "");
                 flash("Successfully Created!");
-                header("Location: my_accounts.php");
-                exit();
             } 
             catch (Exception $e) {
                 flash("Not Created Successfully");

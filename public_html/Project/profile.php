@@ -154,6 +154,7 @@ $public = get_public();
         <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
     </form>
 </div>
+<a href= "dashboard.php" class="sideP"><- Go Back</a>
 <script>
     function validate(form) {
         let pw = form.newPassword.value;

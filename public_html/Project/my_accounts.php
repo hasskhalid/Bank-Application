@@ -59,6 +59,7 @@ catch(PDOException $e){
 ?>
 
 </table>
+<a href= "dashboard.php" class="sideP"><- Go Back</a>
 
 <?php
 require(__DIR__ . "/../../partials/flash.php");

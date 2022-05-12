@@ -6,7 +6,7 @@ if (is_logged_in(true)) {
 ?>
 
 <link rel="stylesheet" href="styles.css">
-<h1>Create an Account</h1>
+<h1 id="title">Create an Account</h1>
 
 <div class ="container-fluid">
     <form onsubmit="return validcate(this)" method="POST">
@@ -29,6 +29,8 @@ if (is_logged_in(true)) {
         </div>
         <input type="submit" class="mt-3 btn btn-primary" value="Create">
     </form>
+
+    <a href= "dashboard.php" class="sideP"><- Go Back</a>
 </div>
 
 <script>
