@@ -154,7 +154,110 @@
 <table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 - User will be able to deposit/withdraw from their account(s) (2021-12-03)</td></tr><tr><td>Status: incomplete</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - Form should have a dropdown of their accounts to pick from<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Form should have a field to enter a positive numeric value<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - For withdraw, add a check to make sure they can’t withdraw more money than the account has<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Form should allow the user to record a memo for the transaction<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Each transaction is recorded as a transaction pair in the Transaction table per the details below<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Show appropriate user-friendly error messages<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Show user-friendly success messages<tr><td>Status: incomplete</td></tr><tr><td><img width="100%" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
 
 - Milestone 3
+
+    - [ ] \(mm/dd/yyyy of completion) User will be able to transfer between their accounts
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+     - [ ] \(mm/dd/yyyy of completion) Transaction History page
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User’s profile page should record/show First and Last name
+  -  List of Evidence of Feature Completion
+    - Status:
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able to transfer funds to another user’s account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1: 
+    - Screenshots
+      - Screenshot #1: 
+        - Screenshot #1 Description: 
+
 - Milestone 4
+
+    - [ ] \(mm/dd/yyyy of completion) User can set their profile to be public or private (will need another column in Users table)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able open a savings account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) User will be able to take out a loan
+  -  List of Evidence of Feature Completion
+    - Status:
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description:
+
+     - [ ] \(mm/dd/yyyy of completion) Listing accounts and/or viewing Account Details should show any applicable APY or “-” if none is set for the particular account (may alternatively just hide the display for these types)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1: 
+    - Screenshots
+      - Screenshot #1: 
+        - Screenshot #1 Description: 
+
+    - [ ] \(mm/dd/yyyy of completion) User will be able to close an account
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+    - [ ] \(mm/dd/yyyy of completion) Admin role (leave this section for last)
+  -  List of Evidence of Feature Completion
+    - Status: 
+    - Direct Link: 
+    - Pull Requests
+      - PR link #1:
+    - Screenshots
+      - Screenshot #1:
+        - Screenshot #1 Description
+
+
 ### Intructions
 #### Don't delete this
 1. Pick one project type

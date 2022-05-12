@@ -68,6 +68,7 @@ if (isset($_POST["username"])) {
 
 
 ?>
+<link rel="stylesheet" href="styles.css">
 <div class="container-fluid">
     <h1>Assign Roles</h1>
     <form method="POST" class="row row-cols-lg-auto g-3 align-items-center">

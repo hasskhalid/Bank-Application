@@ -5,7 +5,7 @@ require(__DIR__ . "/../../partials/nav.php");
     <h1>Login</h1>
     <form onsubmit="return validate(this)" method="POST">
         <div class="mb-3">
-            <label class="form-label" for="email">Username/Email</label>
+            <label class="form-label" for="email">Email</label>
             <input class="form-control" type="text" id="email" name="email" required />
         </div>
         <div class="mb-3">

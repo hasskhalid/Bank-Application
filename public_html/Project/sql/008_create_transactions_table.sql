@@ -6,7 +6,5 @@ CREATE TABLE IF NOT EXISTS Transactions(
     `TransactionType` VARCHAR(100) NOT NULL,
     `Memo` VARCHAR(100) NOT NULL,
     `Created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `ExpectedTotal` DECIMAL(12,2) DEFAULT 0,
-    FOREIGN KEY (AccountSrc) REFERENCES Accounts(id),
-    FOREIGN KEY (AccountDest) REFERENCES Accounts(id)
+    `ExpectedTotal` DECIMAL(12,2) DEFAULT 0
 )
