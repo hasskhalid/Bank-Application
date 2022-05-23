@@ -10,7 +10,7 @@
   
 - My motivation for this project was to learn how to manage a database with different accounts, userID's, and admin roles. I also wanted to test myself by creating functions to help me along the way
   
-- I built this propject because I worked in a bank once as a teller. Remembering that experience inspired me to create an application that did exactly what I would do as a teller.
+- I built this project because I worked in a bank once as a teller. Remembering that experience inspired me to create an application that did exactly what I would do as a teller.
   
 - This application is very simple and user-friendly. Anyone who is not fond of online banking can easily open a new account and manage it as they please even if they are not tech savvy.
   
